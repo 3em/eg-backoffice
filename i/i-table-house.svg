@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.631 27.373">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: 0.1;
+      }
+    </style>
+  </defs>
+  <g id="Group_3131" data-name="Group 3131" class="cls-1">
+    <path id="Path_2908" data-name="Path 2908" d="M0,21.4V35.507a.41.41,0,0,0,.42.42H8.464a.41.41,0,0,0,.42-.42V29.684h4.862v5.823a.41.41,0,0,0,.42.42h8.044a.41.41,0,0,0,.42-.42V21.4Z" transform="translate(0 -8.554)"/>
+    <path id="Path_2909" data-name="Path 2909" d="M0,10.445,11.285,0,22.571,10.445Z"/>
+    <path id="Path_2910" data-name="Path 2910" d="M0,0H3.108V7.165H0Z" transform="translate(16.157 1.099)"/>
+  </g>
+</svg>

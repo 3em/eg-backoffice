@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=1200">
+    <title>Энергогарант - бэкофис</title>
+
+    <link rel="stylesheet" href="css/jquery.datepick.css" media="all">
+    <link rel="stylesheet" href="css/common.css" media="all">
+
+    <script src="js/libs/jquery-3.3.1.min.js"></script>
+    <script src="js/libs/jquery.plugin.js"></script>
+    <script src="js/libs/jquery.datepick.js"></script>
+    <script src="js/libs/jquery.datepick-ru.js"></script>
+
+    <script src="js/main.js"></script>
+    <script src="js/filter.js"></script>
+    <script src="js/inspections.js"></script>
+
+</head>
+<body>
+
+    <div class="js-sidebar b-sidebar">
+        <div class="b-sidebar__top">
+            <a href="#" class="js-sidebar-toggle b-burger"></a>
+            <a href="#" class="js-sidebar-toggle b-logo"></a>
+            <a href="#" class="js-search-call b-search-call"></a>
+        </div>
+
+        <ul class="b-menu">
+            <li class="b-menu__item">
+                <a href="#" class="b-menu__link b-menu__link_1">
+                    <span class="b-menu__link-icon"></span>
+                    <span class="b-menu__link-text">Новый запрос</span>
+                </a>
+            </li>
+            <li class="b-menu__item">
+                <a href="#" class="b-menu__link b-menu__link_2 active">
+                    <span class="b-menu__link-icon"></span>
+                    <span class="b-menu__link-text">Запросы</span>
+                    <span class="b-menu__number hidden"></span>
+                </a>
+            </li>
+            <li class="b-menu__item">
+                <a href="#" class="b-menu__link b-menu__link_3">
+                    <span class="b-menu__link-icon"></span>
+                    <span class="b-menu__link-text">Проверка</span>
+                    <span class="b-menu__number">231</span>
+                </a>
+            </li>
+            <li class="b-menu__item">
+                <a href="#" class="b-menu__link b-menu__link_4">
+                    <span class="b-menu__link-icon"></span>
+                    <span class="b-menu__link-text">Убытки</span>
+                    <span class="b-menu__number">73</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="b-sidebar__exit">
+            <a href="#" class="b-menu__link b-menu__link_exit">
+                <span class="b-menu__link-icon"></span>
+                <span class="b-menu__link-text">Выйти</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="js-content b-content">
+        <div class="u-clear-fix b-content__top">
+            <form action="http://search.php" class="js-search-form b-search">
+                <input type="text" class="js-search-page-input hidden" name="search[page]" id="search_page">
+                <input type="text" class="js-search-input b-search__input" name="search[search]" id="search_search" placeholder="Введите любой критерий осмотра, например фамилию клиента ">
+            </form>
+            <h1>ОСМОТРЫ</h1>
+            <a href="#" class="b-request-call"></a>
+            <ul class="u-clear-fix b-top-links">
+                <li>
+                    <a href="02-inspections-house.html" class="b-top-links__link active">недвижемость</a>
+                </li>
+                <li>
+                    <a href="01-inspections-car.html" class="b-top-links__link">авто</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="js-result-table b-result-table b-result-table_checkbox b-result-table_6">
+
+            <form action="http://filters.php" class="js-table-header b-result-table__header-wrapper">
+                <div class="b-result-table__header-fix">
+                    <div class="b-result-table__header">
+                        <div class="b-result-table__checkbox">
+                            <div class="b-table-checkbox">
+                                <input id="item_all" name="item_all" type="checkbox" class="js-table-checkbox-all b-table-checkbox__input">
+                                <label for="item_all" class="b-table-checkbox__label">
+                                    <span class="b-table-checkbox__icon"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <label class="b-result-table__column">
+                            <div class="js-filter-input-box b-result-table__filter b-result-table__filter_text">
+                                <input class="js-filter-input b-result-table__filter-input" type="text" id="filter1" name="filter1">
+                                <span class="b-result-table__label">Осмотр</span>
+                                <span class="js-filter-input-reset b-result-table__reset"></span>
+                            </div>
+                        </label>
+                        <label class="js-filter-dropdown-label b-result-table__column">
+
+                            <div class="js-filter-input-box b-result-table__filter b-result-table__filter_list">
+                                <input class="js-filter-input b-result-table__filter-input" disabled type="text" id="filter2" name="filter2">
+                                <span class="b-result-table__label">Статус</span>
+                                <span class="js-filter-input-reset b-result-table__reset"></span>
+                            </div>
+
+                            <ul class="b-result-table__filter-dropdown">
+                                <li>
+                                    <a href="#" class="js-filter-dropdown-item">Проверить</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="js-filter-dropdown-item">Просрочен</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="js-filter-dropdown-item">На доработке</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="js-filter-dropdown-item">Ожидает осмотра</a>
+                                </li>
+                            </ul>
+
+                        </label>
+                        <label class="b-result-table__column">
+
+                            <div class="js-filter-input-box b-result-table__filter b-result-table__filter_date">
+                                <input readonly class="js-filter-datepicker js-filter-input b-result-table__filter-input" type="text" id="filter3" name="filter3">
+                                <span class="b-result-table__label">Дата</span>
+                                <span class="js-filter-input-reset b-result-table__reset"></span>
+                            </div>
+
+                        </label>
+                        <label class="b-result-table__column">
+                            <div class="js-filter-input-box b-result-table__filter b-result-table__filter_text">
+                                <input class="js-filter-input b-result-table__filter-input" type="text" id="filter4" name="filter4">
+                                <span class="b-result-table__label">КЛИЕНТ</span>
+                                <span class="js-filter-input-reset b-result-table__reset"></span>
+                            </div>
+                        </label>
+                        <label class="b-result-table__column">
+                            <div class="js-filter-input-box b-result-table__filter b-result-table__filter_text">
+                                <input class="js-filter-input b-result-table__filter-input" type="text" id="filter5" name="filter5">
+                                <span class="b-result-table__label">АГЕНТ</span>
+                                <span class="js-filter-input-reset b-result-table__reset"></span>
+                            </div>
+                        </label>
+                        <label class="b-result-table__column">
+                            <div class="js-filter-input-box b-result-table__filter b-result-table__filter_text">
+                                <input class="js-filter-input b-result-table__filter-input" type="text" id="filter6" name="filter6">
+                                <span class="b-result-table__label">Город</span>
+                                <span class="js-filter-input-reset b-result-table__reset"></span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </form>
+
+            <form action="http://items.php" class="js-product-list-form">
+                <ul class="js-table-result b-result-table__content">
+
+                    <li class="js-table-item b-result-table__item">
+                        <div class="js-table-item-toggle b-result-table__item-top">
+                            <div class="b-result-table__checkbox">
+                                <div class="b-table-checkbox">
+                                    <input id="item1" name="item1" type="checkbox" class="js-table-checkbox b-table-checkbox__input">
+                                    <label for="item1" class="b-table-checkbox__label">
+                                        <span class="b-table-checkbox__icon"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="b-result-table__column">
+                                # 001-232-42
+                            </div>
+                            <div class="b-result-table__column">
+                                <span class="b-result-table__status">Ожидает</span>
+                            </div>
+                            <div class="b-result-table__column">
+                                15 авг в 20:30
+                            </div>
+                            <div class="b-result-table__column">
+                                <span>Конста</span>нтин П.
+                            </div>
+                            <div class="b-result-table__column">
+                                Леонид К.
+                            </div>
+                            <div class="b-result-table__column">
+                                Москва
+                            </div>
+                        </div>
+                        <div class="b-result-table__info b-result-table__info_house">
+                            <a href="#" class="b-result-table__button"></a>
+                            <div class="b-result-table__info-table">
+                                <div class="b-result-table__info-tr">
+                                    <div class="b-result-table__info-column address">
+                                        <span>Адрес</span>
+                                        <div>г. Москва, ул.Парковая, д. 12, кв. 29</div>
+                                    </div>
+                                    <div class="b-result-table__info-column"></div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Количество этажей</span>
+                                        4
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Год постройки</span>
+                                        2017
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Охранная сигнализация</span>
+                                        Есть
+                                    </div>
+                                </div>
+                                <div class="b-result-table__info-tr">
+                                    <div class="b-result-table__info-column">
+                                        <span>Фамилия</span>
+                                        Константинопольский
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Имя</span>
+                                        Константин
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Отчество</span>
+                                        Константинович
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Мобильный телефон</span>
+                                        8 965 072 18 66
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>E-mail</span>
+                                        kostyan777@gmail.com
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="js-table-item b-result-table__item overdue">
+                        <div class="js-table-item-toggle b-result-table__item-top">
+                            <div class="b-result-table__checkbox">
+                                <div class="b-table-checkbox">
+                                    <input id="item2" name="item2" type="checkbox" class="js-table-checkbox b-table-checkbox__input">
+                                    <label for="item2" class="b-table-checkbox__label">
+                                        <span class="b-table-checkbox__icon"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="b-result-table__column">
+                                # 001-232-42
+                            </div>
+                            <div class="b-result-table__column">
+                                <span class="b-result-table__status">Ожидает</span>
+                            </div>
+                            <div class="b-result-table__column">
+                                15 авг в 20:30
+                            </div>
+                            <div class="b-result-table__column">
+                                <span>Конста</span>нтин П.
+                            </div>
+                            <div class="b-result-table__column empty">
+
+                            </div>
+                            <div class="b-result-table__column">
+                                Москва
+                            </div>
+                        </div>
+                        <div class="b-result-table__info b-result-table__info_house">
+                            <a href="#" class="b-result-table__button"></a>
+                            <div class="b-result-table__info-table">
+                                <div class="b-result-table__info-tr">
+                                    <div class="b-result-table__info-column address">
+                                        <span>Адрес</span>
+                                        <div>г. Москва, ул.Парковая, д. 12, кв. 29</div>
+                                    </div>
+                                    <div class="b-result-table__info-column"></div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Количество этажей</span>
+                                        4
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Год постройки</span>
+                                        2017
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Охранная сигнализация</span>
+                                        Есть
+                                    </div>
+                                </div>
+                                <div class="b-result-table__info-tr">
+                                    <div class="b-result-table__info-column">
+                                        <span>Фамилия</span>
+                                        Константинопольский
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Имя</span>
+                                        Константин
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Отчество</span>
+                                        Константинович
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Мобильный телефон</span>
+                                        8 965 072 18 66
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>E-mail</span>
+                                        kostyan777@gmail.com
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="js-table-item b-result-table__item">
+                        <div class="js-table-item-toggle b-result-table__item-top">
+                            <div class="b-result-table__checkbox">
+                                <div class="b-table-checkbox">
+                                    <input id="item3" name="item3" type="checkbox" class="js-table-checkbox b-table-checkbox__input">
+                                    <label for="item3" class="b-table-checkbox__label">
+                                        <span class="b-table-checkbox__icon"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="b-result-table__column">
+                                # 001-232-42
+                            </div>
+                            <div class="b-result-table__column">
+                                <span class="b-result-table__status">Ожидает</span>
+                            </div>
+                            <div class="b-result-table__column">
+                                15 авг в 20:30
+                            </div>
+                            <div class="b-result-table__column">
+                                <span>Конста</span>нтин П.
+                            </div>
+                            <div class="b-result-table__column">
+                                Леонид К.
+                            </div>
+                            <div class="b-result-table__column">
+                                Москва
+                            </div>
+                        </div>
+                        <div class="b-result-table__info b-result-table__info_house">
+                            <a href="#" class="b-result-table__button"></a>
+                            <div class="b-result-table__info-table">
+                                <div class="b-result-table__info-tr">
+                                    <div class="b-result-table__info-column address">
+                                        <span>Адрес</span>
+                                        <div>г. Москва, ул.Парковая, д. 12, кв. 29</div>
+                                    </div>
+                                    <div class="b-result-table__info-column"></div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Количество этажей</span>
+                                        4
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Год постройки</span>
+                                        2017
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Охранная сигнализация</span>
+                                        Есть
+                                    </div>
+                                </div>
+                                <div class="b-result-table__info-tr">
+                                    <div class="b-result-table__info-column">
+                                        <span>Фамилия</span>
+                                        Константинопольский
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Имя</span>
+                                        Константин
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Отчество</span>
+                                        Константинович
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Мобильный телефон</span>
+                                        8 965 072 18 66
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>E-mail</span>
+                                        kostyan777@gmail.com
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="js-table-item b-result-table__item overdue">
+                        <div class="js-table-item-toggle b-result-table__item-top">
+                            <div class="b-result-table__checkbox">
+                                <div class="b-table-checkbox">
+                                    <input id="item4" name="item4" type="checkbox" class="js-table-checkbox b-table-checkbox__input">
+                                    <label for="item4" class="b-table-checkbox__label">
+                                        <span class="b-table-checkbox__icon"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="b-result-table__column">
+                                # 001-232-42
+                            </div>
+                            <div class="b-result-table__column">
+                                <span class="b-result-table__status">Ожидает</span>
+                            </div>
+                            <div class="b-result-table__column">
+                                15 авг в 20:30
+                            </div>
+                            <div class="b-result-table__column">
+                                <span>Конста</span>нтин П.
+                            </div>
+                            <div class="b-result-table__column empty">
+
+                            </div>
+                            <div class="b-result-table__column">
+                                Москва
+                            </div>
+                        </div>
+                        <div class="b-result-table__info b-result-table__info_house">
+                            <a href="#" class="b-result-table__button"></a>
+                            <div class="b-result-table__info-table">
+                                <div class="b-result-table__info-tr">
+                                    <div class="b-result-table__info-column address">
+                                        <span>Адрес</span>
+                                        <div>г. Москва, ул.Парковая, д. 12, кв. 29</div>
+                                    </div>
+                                    <div class="b-result-table__info-column"></div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Количество этажей</span>
+                                        4
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Год постройки</span>
+                                        2017
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Охранная сигнализация</span>
+                                        Есть
+                                    </div>
+                                </div>
+                                <div class="b-result-table__info-tr">
+                                    <div class="b-result-table__info-column">
+                                        <span>Фамилия</span>
+                                        Константинопольский
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Имя</span>
+                                        Константин
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Отчество</span>
+                                        Константинович
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Мобильный телефон</span>
+                                        8 965 072 18 66
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>E-mail</span>
+                                        kostyan777@gmail.com
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="js-table-item b-result-table__item">
+                        <div class="js-table-item-toggle b-result-table__item-top">
+                            <div class="b-result-table__checkbox">
+                                <div class="b-table-checkbox">
+                                    <input id="item5" name="item5" type="checkbox" class="js-table-checkbox b-table-checkbox__input">
+                                    <label for="item5" class="b-table-checkbox__label">
+                                        <span class="b-table-checkbox__icon"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="b-result-table__column">
+                                # 001-232-42
+                            </div>
+                            <div class="b-result-table__column">
+                                <span class="b-result-table__status">Ожидает</span>
+                            </div>
+                            <div class="b-result-table__column">
+                                15 авг в 20:30
+                            </div>
+                            <div class="b-result-table__column">
+                                <span>Конста</span>нтин П.
+                            </div>
+                            <div class="b-result-table__column">
+                                Леонид К.
+                            </div>
+                            <div class="b-result-table__column">
+                                Москва
+                            </div>
+                        </div>
+                        <div class="b-result-table__info b-result-table__info_house">
+                            <a href="#" class="b-result-table__button"></a>
+                            <div class="b-result-table__info-table">
+                                <div class="b-result-table__info-tr">
+                                    <div class="b-result-table__info-column address">
+                                        <span>Адрес</span>
+                                        <div>г. Москва, ул.Парковая, д. 12, кв. 29</div>
+                                    </div>
+                                    <div class="b-result-table__info-column"></div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Количество этажей</span>
+                                        4
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Год постройки</span>
+                                        2017
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Охранная сигнализация</span>
+                                        Есть
+                                    </div>
+                                </div>
+                                <div class="b-result-table__info-tr">
+                                    <div class="b-result-table__info-column">
+                                        <span>Фамилия</span>
+                                        Константинопольский
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Имя</span>
+                                        Константин
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Отчество</span>
+                                        Константинович
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Мобильный телефон</span>
+                                        8 965 072 18 66
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>E-mail</span>
+                                        kostyan777@gmail.com
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="js-table-item b-result-table__item overdue">
+                        <div class="js-table-item-toggle b-result-table__item-top">
+                            <div class="b-result-table__checkbox">
+                                <div class="b-table-checkbox">
+                                    <input id="item6" name="item6" type="checkbox" class="js-table-checkbox b-table-checkbox__input">
+                                    <label for="item6" class="b-table-checkbox__label">
+                                        <span class="b-table-checkbox__icon"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="b-result-table__column">
+                                # 001-232-42
+                            </div>
+                            <div class="b-result-table__column">
+                                <span class="b-result-table__status">Ожидает</span>
+                            </div>
+                            <div class="b-result-table__column">
+                                15 авг в 20:30
+                            </div>
+                            <div class="b-result-table__column">
+                                <span>Конста</span>нтин П.
+                            </div>
+                            <div class="b-result-table__column empty">
+
+                            </div>
+                            <div class="b-result-table__column">
+                                Москва
+                            </div>
+                        </div>
+                        <div class="b-result-table__info b-result-table__info_house">
+                            <a href="#" class="b-result-table__button"></a>
+                            <div class="b-result-table__info-table">
+                                <div class="b-result-table__info-tr">
+                                    <div class="b-result-table__info-column address">
+                                        <span>Адрес</span>
+                                        <div>г. Москва, ул.Парковая, д. 12, кв. 29</div>
+                                    </div>
+                                    <div class="b-result-table__info-column"></div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Количество этажей</span>
+                                        4
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Год постройки</span>
+                                        2017
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Охранная сигнализация</span>
+                                        Есть
+                                    </div>
+                                </div>
+                                <div class="b-result-table__info-tr">
+                                    <div class="b-result-table__info-column">
+                                        <span>Фамилия</span>
+                                        Константинопольский
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Имя</span>
+                                        Константин
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Отчество</span>
+                                        Константинович
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Мобильный телефон</span>
+                                        8 965 072 18 66
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>E-mail</span>
+                                        kostyan777@gmail.com
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="js-table-item b-result-table__item">
+                        <div class="js-table-item-toggle b-result-table__item-top">
+                            <div class="b-result-table__checkbox">
+                                <div class="b-table-checkbox">
+                                    <input id="item7" name="item7" type="checkbox" class="js-table-checkbox b-table-checkbox__input">
+                                    <label for="item7" class="b-table-checkbox__label">
+                                        <span class="b-table-checkbox__icon"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="b-result-table__column">
+                                # 001-232-42
+                            </div>
+                            <div class="b-result-table__column">
+                                <span class="b-result-table__status">Ожидает</span>
+                            </div>
+                            <div class="b-result-table__column">
+                                15 авг в 20:30
+                            </div>
+                            <div class="b-result-table__column">
+                                <span>Конста</span>нтин П.
+                            </div>
+                            <div class="b-result-table__column">
+                                Леонид К.
+                            </div>
+                            <div class="b-result-table__column">
+                                Москва
+                            </div>
+                        </div>
+                        <div class="b-result-table__info b-result-table__info_house">
+                            <a href="#" class="b-result-table__button"></a>
+                            <div class="b-result-table__info-table">
+                                <div class="b-result-table__info-tr">
+                                    <div class="b-result-table__info-column address">
+                                        <span>Адрес</span>
+                                        <div>г. Москва, ул.Парковая, д. 12, кв. 29</div>
+                                    </div>
+                                    <div class="b-result-table__info-column"></div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Количество этажей</span>
+                                        4
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Год постройки</span>
+                                        2017
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Охранная сигнализация</span>
+                                        Есть
+                                    </div>
+                                </div>
+                                <div class="b-result-table__info-tr">
+                                    <div class="b-result-table__info-column">
+                                        <span>Фамилия</span>
+                                        Константинопольский
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Имя</span>
+                                        Константин
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Отчество</span>
+                                        Константинович
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Мобильный телефон</span>
+                                        8 965 072 18 66
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>E-mail</span>
+                                        kostyan777@gmail.com
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="js-table-item b-result-table__item overdue">
+                        <div class="js-table-item-toggle b-result-table__item-top">
+                            <div class="b-result-table__checkbox">
+                                <div class="b-table-checkbox">
+                                    <input id="item8" name="item8" type="checkbox" class="js-table-checkbox b-table-checkbox__input">
+                                    <label for="item8" class="b-table-checkbox__label">
+                                        <span class="b-table-checkbox__icon"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="b-result-table__column">
+                                # 001-232-42
+                            </div>
+                            <div class="b-result-table__column">
+                                <span class="b-result-table__status">Ожидает</span>
+                            </div>
+                            <div class="b-result-table__column">
+                                15 авг в 20:30
+                            </div>
+                            <div class="b-result-table__column">
+                                <span>Конста</span>нтин П.
+                            </div>
+                            <div class="b-result-table__column empty">
+
+                            </div>
+                            <div class="b-result-table__column">
+                                Москва
+                            </div>
+                        </div>
+                        <div class="b-result-table__info b-result-table__info_house">
+                            <a href="#" class="b-result-table__button"></a>
+                            <div class="b-result-table__info-table">
+                                <div class="b-result-table__info-tr">
+                                    <div class="b-result-table__info-column address">
+                                        <span>Адрес</span>
+                                        <div>г. Москва, ул.Парковая, д. 12, кв. 29</div>
+                                    </div>
+                                    <div class="b-result-table__info-column"></div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Количество этажей</span>
+                                        4
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Год постройки</span>
+                                        2017
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Охранная сигнализация</span>
+                                        Есть
+                                    </div>
+                                </div>
+                                <div class="b-result-table__info-tr">
+                                    <div class="b-result-table__info-column">
+                                        <span>Фамилия</span>
+                                        Константинопольский
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Имя</span>
+                                        Константин
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Отчество</span>
+                                        Константинович
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Мобильный телефон</span>
+                                        8 965 072 18 66
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>E-mail</span>
+                                        kostyan777@gmail.com
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="js-table-item b-result-table__item">
+                        <div class="js-table-item-toggle b-result-table__item-top">
+                            <div class="b-result-table__checkbox">
+                                <div class="b-table-checkbox">
+                                    <input id="item9" name="item9" type="checkbox" class="js-table-checkbox b-table-checkbox__input">
+                                    <label for="item9" class="b-table-checkbox__label">
+                                        <span class="b-table-checkbox__icon"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="b-result-table__column">
+                                # 001-232-42
+                            </div>
+                            <div class="b-result-table__column">
+                                <span class="b-result-table__status">Ожидает</span>
+                            </div>
+                            <div class="b-result-table__column">
+                                15 авг в 20:30
+                            </div>
+                            <div class="b-result-table__column">
+                                <span>Конста</span>нтин П.
+                            </div>
+                            <div class="b-result-table__column">
+                                Леонид К.
+                            </div>
+                            <div class="b-result-table__column">
+                                Москва
+                            </div>
+                        </div>
+                        <div class="b-result-table__info b-result-table__info_house">
+                            <a href="#" class="b-result-table__button"></a>
+                            <div class="b-result-table__info-table">
+                                <div class="b-result-table__info-tr">
+                                    <div class="b-result-table__info-column address">
+                                        <span>Адрес</span>
+                                        <div>г. Москва, ул.Парковая, д. 12, кв. 29</div>
+                                    </div>
+                                    <div class="b-result-table__info-column"></div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Количество этажей</span>
+                                        4
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Год постройки</span>
+                                        2017
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Охранная сигнализация</span>
+                                        Есть
+                                    </div>
+                                </div>
+                                <div class="b-result-table__info-tr">
+                                    <div class="b-result-table__info-column">
+                                        <span>Фамилия</span>
+                                        Константинопольский
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Имя</span>
+                                        Константин
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Отчество</span>
+                                        Константинович
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Мобильный телефон</span>
+                                        8 965 072 18 66
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>E-mail</span>
+                                        kostyan777@gmail.com
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="js-table-item b-result-table__item overdue">
+                        <div class="js-table-item-toggle b-result-table__item-top">
+                            <div class="b-result-table__checkbox">
+                                <div class="b-table-checkbox">
+                                    <input id="item10" name="item10" type="checkbox" class="js-table-checkbox b-table-checkbox__input">
+                                    <label for="item10" class="b-table-checkbox__label">
+                                        <span class="b-table-checkbox__icon"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="b-result-table__column">
+                                # 001-232-42
+                            </div>
+                            <div class="b-result-table__column">
+                                <span class="b-result-table__status">Ожидает</span>
+                            </div>
+                            <div class="b-result-table__column">
+                                15 авг в 20:30
+                            </div>
+                            <div class="b-result-table__column">
+                                <span>Конста</span>нтин П.
+                            </div>
+                            <div class="b-result-table__column empty">
+
+                            </div>
+                            <div class="b-result-table__column">
+                                Москва
+                            </div>
+                        </div>
+                        <div class="b-result-table__info b-result-table__info_house">
+                            <a href="#" class="b-result-table__button"></a>
+                            <div class="b-result-table__info-table">
+                                <div class="b-result-table__info-tr">
+                                    <div class="b-result-table__info-column address">
+                                        <span>Адрес</span>
+                                        <div>г. Москва, ул.Парковая, д. 12, кв. 29</div>
+                                    </div>
+                                    <div class="b-result-table__info-column"></div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Количество этажей</span>
+                                        4
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Год постройки</span>
+                                        2017
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Охранная сигнализация</span>
+                                        Есть
+                                    </div>
+                                </div>
+                                <div class="b-result-table__info-tr">
+                                    <div class="b-result-table__info-column">
+                                        <span>Фамилия</span>
+                                        Константинопольский
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Имя</span>
+                                        Константин
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Отчество</span>
+                                        Константинович
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Мобильный телефон</span>
+                                        8 965 072 18 66
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>E-mail</span>
+                                        kostyan777@gmail.com
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="js-table-item b-result-table__item">
+                        <div class="js-table-item-toggle b-result-table__item-top">
+                            <div class="b-result-table__checkbox">
+                                <div class="b-table-checkbox">
+                                    <input id="item11" name="item11" type="checkbox" class="js-table-checkbox b-table-checkbox__input">
+                                    <label for="item11" class="b-table-checkbox__label">
+                                        <span class="b-table-checkbox__icon"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="b-result-table__column">
+                                # 001-232-42
+                            </div>
+                            <div class="b-result-table__column">
+                                <span class="b-result-table__status">Ожидает</span>
+                            </div>
+                            <div class="b-result-table__column">
+                                15 авг в 20:30
+                            </div>
+                            <div class="b-result-table__column">
+                                <span>Конста</span>нтин П.
+                            </div>
+                            <div class="b-result-table__column">
+                                Леонид К.
+                            </div>
+                            <div class="b-result-table__column">
+                                Москва
+                            </div>
+                        </div>
+                        <div class="b-result-table__info b-result-table__info_house">
+                            <a href="#" class="b-result-table__button"></a>
+                            <div class="b-result-table__info-table">
+                                <div class="b-result-table__info-tr">
+                                    <div class="b-result-table__info-column address">
+                                        <span>Адрес</span>
+                                        <div>г. Москва, ул.Парковая, д. 12, кв. 29</div>
+                                    </div>
+                                    <div class="b-result-table__info-column"></div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Количество этажей</span>
+                                        4
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Год постройки</span>
+                                        2017
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Охранная сигнализация</span>
+                                        Есть
+                                    </div>
+                                </div>
+                                <div class="b-result-table__info-tr">
+                                    <div class="b-result-table__info-column">
+                                        <span>Фамилия</span>
+                                        Константинопольский
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Имя</span>
+                                        Константин
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Отчество</span>
+                                        Константинович
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Мобильный телефон</span>
+                                        8 965 072 18 66
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>E-mail</span>
+                                        kostyan777@gmail.com
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="js-table-item b-result-table__item overdue">
+                        <div class="js-table-item-toggle b-result-table__item-top">
+                            <div class="b-result-table__checkbox">
+                                <div class="b-table-checkbox">
+                                    <input id="item12" name="item12" type="checkbox" class="js-table-checkbox b-table-checkbox__input">
+                                    <label for="item12" class="b-table-checkbox__label">
+                                        <span class="b-table-checkbox__icon"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="b-result-table__column">
+                                # 001-232-42
+                            </div>
+                            <div class="b-result-table__column">
+                                <span class="b-result-table__status">Ожидает</span>
+                            </div>
+                            <div class="b-result-table__column">
+                                15 авг в 20:30
+                            </div>
+                            <div class="b-result-table__column">
+                                <span>Конста</span>нтин П.
+                            </div>
+                            <div class="b-result-table__column empty">
+
+                            </div>
+                            <div class="b-result-table__column">
+                                Москва
+                            </div>
+                        </div>
+                        <div class="b-result-table__info b-result-table__info_house">
+                            <a href="#" class="b-result-table__button"></a>
+                            <div class="b-result-table__info-table">
+                                <div class="b-result-table__info-tr">
+                                    <div class="b-result-table__info-column address">
+                                        <span>Адрес</span>
+                                        <div>г. Москва, ул.Парковая, д. 12, кв. 29</div>
+                                    </div>
+                                    <div class="b-result-table__info-column"></div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Количество этажей</span>
+                                        4
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Год постройки</span>
+                                        2017
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Охранная сигнализация</span>
+                                        Есть
+                                    </div>
+                                </div>
+                                <div class="b-result-table__info-tr">
+                                    <div class="b-result-table__info-column">
+                                        <span>Фамилия</span>
+                                        Константинопольский
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Имя</span>
+                                        Константин
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Отчество</span>
+                                        Константинович
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>Мобильный телефон</span>
+                                        8 965 072 18 66
+                                    </div>
+                                    <div class="b-result-table__info-column">
+                                        <span>E-mail</span>
+                                        kostyan777@gmail.com
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </form>
+
+            <div class="js-search-form-error b-search__error hidden">
+                По вашему запросу ничего не найдено
+            </div>
+        </div>
+
+        <form action="http://prolongate.php" class="js-prolongate-form u-clear-fix b-prolongate">
+            <div class="b-prolongate__text">
+                Продлить срок <span class="js-prolongate-amount"></span> до
+            </div>
+            <div class="b-prolongate__date-box">
+                <label class="b-prolongate__date">
+                    <input readonly class="js-prolongate-input b-prolongate__date-input opacity"  name="prolongate_date" id="prolongate_date">
+                    <a href="#" class="js-prolongate-reset b-prolongate__date-reset"></a>
+                    <span class="b-prolongate__date-def">Выбрать</span>
+                </label>
+            </div>
+            <button type="submit" class="b-button b-button_white">Продлить</button>
+            <div class="js-prolongate-error b-prolongate__error hidden">
+                Возникла ошибка, повторите попытку позже.
+            </div>
+            <a href="#" class="js-prolongate-reset b-prolongate__reset">Сбросить</a>
+        </form>
+
+        <div class="js-prolongate-success b-prolongate__success hidden">
+            <span class="js-prolongate-amount-success"></span>
+            до
+            <span class="js-prolongate-date-success">21 авг</span>
+            <a href="#" class="js-prolongate-success-close b-prolongate__success_close"></a>
+        </div>
+
+        <a href="#" class="js-scroll-top b-scroll-top"></a>
+
+    </div>
+
+    <div class="js-forms-error b-forms-error">
+        Возникла ошибка. Повторите попытку позже.
+    </div>
+</body>
+</html>
+
