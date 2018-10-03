@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=1200">
+    <title>Энергогарант - бэкофис</title>
+
+    <link rel="stylesheet" href="css/jquery.datepick.css" media="all">
+    <link rel="stylesheet" href="css/common.css" media="all">
+
+    <script src="js/libs/jquery-3.3.1.min.js"></script>
+    <script src="js/libs/jquery.plugin.js"></script>
+    <script src="js/libs/jquery.datepick.js"></script>
+    <script src="js/libs/jquery.datepick-ru.js"></script>
+
+    <script src="js/main.js"></script>
+    <script src="js/inquiry.js"></script>
+    <script>
+        var defaultList = [
+          {
+            "title": "Юрьевский Константин Семенович",
+            "views": "118"
+          },{
+            "title": "Константинов Александр Константинович",
+            "views": "1"
+          },{
+            "title": "Тверской Константин Потапович",
+            "views": "2"
+          }
+        ]
+    </script>
+
+</head>
+<body>
+
+    <div class="js-sidebar b-sidebar">
+        <div class="b-sidebar__top">
+            <a href="#" class="js-sidebar-toggle b-burger"></a>
+            <a href="#" class="js-sidebar-toggle b-logo"></a>
+            <a href="#" class="js-search-call b-search-call"></a>
+        </div>
+
+        <ul class="b-menu">
+            <li class="b-menu__item">
+                <a href="#" class="b-menu__link b-menu__link_1 active">
+                    <span class="b-menu__link-icon"></span>
+                    <span class="b-menu__link-text">Новый запрос</span>
+                </a>
+            </li>
+            <li class="b-menu__item">
+                <a href="#" class="b-menu__link b-menu__link_2">
+                    <span class="b-menu__link-icon"></span>
+                    <span class="b-menu__link-text">Запросы</span>
+                    <span class="b-menu__number hidden"></span>
+                </a>
+            </li>
+            <li class="b-menu__item">
+                <a href="#" class="b-menu__link b-menu__link_3">
+                    <span class="b-menu__link-icon"></span>
+                    <span class="b-menu__link-text">Проверка</span>
+                    <span class="b-menu__number">231</span>
+                </a>
+            </li>
+            <li class="b-menu__item">
+                <a href="#" class="b-menu__link b-menu__link_4">
+                    <span class="b-menu__link-icon"></span>
+                    <span class="b-menu__link-text">Убытки</span>
+                    <span class="b-menu__number">73</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="b-sidebar__exit">
+            <a href="#" class="b-menu__link b-menu__link_exit">
+                <span class="b-menu__link-icon"></span>
+                <span class="b-menu__link-text">Выйти</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="js-content b-content">
+        <div class="u-clear-fix b-content__top">
+            <form action="http://search.php" class="js-search-form b-search">
+                <input type="text" class="js-search-page-input hidden" name="search[page]" id="search_page">
+                <input type="text" class="js-search-input b-search__input" name="search[search]" id="search_search" placeholder="Введите любой критерий осмотра, например фамилию клиента ">
+            </form>
+            <h1>НОВЫЙ ЗАПРОС НА ОСМОТР</h1>
+            <ul class="u-clear-fix b-top-links b-top-links__tabs">
+                <li>
+                    <a href="#personal" class="js-top-tab b-top-links__link">ПЕРСОНАЛЬНЫЙ</a>
+                </li>
+                <li>
+                    <a href="#agents" class="js-top-tab b-top-links__link active">АГЕНТСКИЙ</a>
+                </li>
+            </ul>
+        </div>
+
+        <form action="http://inquiry.php" data-action-list="http://agency-list.php" id="agents" class="js-tab-item js-inquiry-form-agent b-inquiry">
+
+            <div class="js-inquiry-item b-inquiry__item">
+                <div class="js-input-box b-input__box b-input__box_name">
+                    <input id="agents_1_name" name="agents_1[name]" class="js-required js-input js-input-agents b-input" type="text">
+                    <label for="agents_1_name" class="b-input__label">ФИО агента</label>
+                    <ul class="js-agents-list b-agents-list hidden"></ul>
+                </div>
+
+                <div class="js-input-box b-input__box b-input__box_contract">
+                    <input id="agents_1_number_1" name="agents_1[number_1]" class="js-input js-input-contract b-input" type="text">
+                    <label for="agents_1_number_1" class="b-input__label">Номер договора</label>
+                    <a href="#" class="js-reset-input b-input__reset"></a>
+                </div>
+            </div>
+
+            <div class="js-button-bar js-button-bar-agent b-button__wrapper">
+                <div class="b-button__box_fix">
+                    <div class="u-clear-fix b-button__box">
+                        <button type="submit" class="b-button" disabled=disabled>Отправить</button>
+                        <p class="js-tab-item-error b-inquiry__error hidden">Возникла ошибка, повторите попытку позже.</p>
+                        <a href="#" class="js-add-item">Добавить агента</a>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+        <form action="http://inquiry.php" id="personal" class="js-tab-item js-inquiry-form-personal b-inquiry hidden">
+
+            <div class="js-inquiry-item b-inquiry__item show-contracts">
+                <div class="js-input-box b-input__box b-input__box_name">
+                    <input id="personal_1_name" name="personal_1[name]" class="js-required js-input b-input" type="text">
+                    <label for="personal_1_name" class="b-input__label">ФИО клиента</label>
+                </div>
+
+                <div class="js-input-box b-input__box b-input__box_contract">
+                    <input id="personal_1_number" name="personal_1[number]" class="js-required js-input b-input" type="text">
+                    <label for="personal_1_number" class="b-input__label">Номер договора</label>
+                    <a href="#" class="js-reset-input b-input__reset"></a>
+                </div>
+            </div>
+
+            <div class="js-button-bar js-button-bar-personal b-button__wrapper">
+                <div class="b-button__box_fix">
+                    <div class="u-clear-fix b-button__box">
+                        <button type="submit" class="b-button" disabled=disabled>Отправить</button>
+                        <p class="js-tab-item-error b-inquiry__error hidden">Возникла ошибка, повторите попытку позже.</p>
+                        <a href="#" class="js-add-item">Добавить клиента</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="js-tab-item-success b-prolongate__success hidden">
+            Запросы на осмотр успешно отправлены
+            <a href="#" class="js-prolongate-success-close b-prolongate__success_close"></a>
+        </div>
+    </div>
+
+
+</body>
+</html>
+

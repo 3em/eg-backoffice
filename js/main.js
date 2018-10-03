@@ -10,7 +10,70 @@ $(function () {
   var $filterForm = $('.js-table-header');
   var $tableResultAppend = $('.js-table-result');
   var $searchError = $('.js-search-form-error');
+  var windowHeight = $(window).height();
+  var $minHeightBlock = $('.js-min-height');
   var sttm;
+  var $popupOverlay = $('.js-overlay');
+  var $popup = $('.js-popup');
+  var $video = $('.js-video');
+  var $popupCloseLink = $('.js-close-popup');
+
+  $(window).on('resize', function () {
+    windowHeight = $(window).height();
+    resizeSizes()
+  });
+
+  /**
+   * close popup on click close link
+   */
+  $popupCloseLink.on('click', function (e) {
+    e.preventDefault();
+    closePopup();
+  });
+
+  /**
+   * close any popup func
+   */
+  function closePopup() {
+    $popupOverlay.removeClass('show').removeClass('b-overlay__grey');
+    $popup.removeClass('show');
+    $body.removeClass('overflow');
+
+    if ($video.length){
+      $video[0].pause();
+      $video[0].currentTime = 0;
+    }
+  }
+
+  /**
+   * close popup if esc
+   */
+  $(document).keyup(function (e) {
+    if (e.which == 27 && $popupOverlay.is(':visible')) {
+      closePopup();
+    }
+  });
+
+  /**
+   * resize blocks values
+   */
+  function resizeSizes() {
+    $minHeightBlock.css('min-height', windowHeight+'px');
+  }
+  resizeSizes();
+
+  /**
+   * inputs placeholder move
+   */
+  $(document).on('keyup paste change input', '.js-input', function () {
+
+    var $parent = $(this).closest('.js-input-box');
+    if ($(this).val() != '' && !$parent.hasClass('shifted')){
+      $parent.addClass('shifted');
+    } else if ($(this).val() == '' && $parent.hasClass('shifted')){
+      $parent.removeClass('shifted');
+    }
+  });
 
   /**
    * toggle open sidebar
@@ -112,6 +175,92 @@ $(function () {
       $tableResultAppend.removeClass('searching');
     }
   });
+
+  /**
+   * textarea height with content text
+   */
+  var defHeight = 50;
+  $('textarea').each(function () {
+    this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
+  }).on('keyup paste change input focus', function () {
+    this.style.height = '0';
+    if ($(this).val() != ''){
+      this.style.height = (this.scrollHeight) + 'px';
+    } else {
+      this.style.height = (defHeight) + 'px';
+    }
+  });
+
+  /**
+   * document click events
+   */
+  $(document).click(function (e) {
+    var $target = $(e.target),
+      $parent = undefined;
+
+    // dropdown behaviour
+    if ($target.is('.b-dropdown *')) {
+      $parent = $target.parents('.b-dropdown');
+      if ($target.is('.b-dropdown__item')) {
+        $('.b-dropdown__item', $parent).removeClass('hidden active');
+        $parent.removeClass('b-dropdown__first').removeClass('first-open');
+        $target.addClass('hidden active');
+        $('.b-dropdown__text', $parent).html($target.html()).addClass('js-link-stop');
+
+        var $thisInputForSelect = $('.js-input-for-select', $parent.closest('.b-dropdown__box'));
+
+        if ($target.data('letter') != undefined){
+          $thisInputForSelect.val($target.data('letter')).trigger('change');
+        } else {
+          $thisInputForSelect.val($target.text()).trigger('change');
+        }
+
+        checkDropdownValueEmpty($thisInputForSelect, $parent);
+
+        // if data-link go by url
+        if ($target.data('link') != undefined)
+          window.location = $target.data('link');
+      }
+      toggleDropdown($parent)
+    } else {
+      $('.b-dropdown').each(function () {
+        if (!$(this).hasClass('first-open')){
+          $(this).removeClass('b-dropdown_open');
+        }
+      })
+    }
+  });
+
+  /**
+   * add shifted class when input has value
+   * @param $input
+   * @param $parent
+   */
+  function checkDropdownValueEmpty($input, $parent) {
+    if ($input.val() != '' && !$parent.hasClass('shifted')){
+      $parent.addClass('shifted')
+    } else if ($input.val() == '' && $parent.hasClass('shifted')){
+      $parent.removeClass('shifted')
+    }
+  }
+
+  /**
+   * dropdown open | close func
+   * @param parent
+   */
+  function toggleDropdown(parent) {
+    if (parent.hasClass('b-dropdown_open')) {
+      parent.removeClass('b-dropdown_open');
+    } else {
+      $('.b-dropdown').each(function () {
+        if (!$(this).hasClass('first-open')){
+          $(this).removeClass('b-dropdown_open');
+        }
+      });
+      parent.addClass('b-dropdown_open');
+      $('b-dropdown__text', parent).removeClass('js-link-stop');
+    }
+  }
 
 });
 

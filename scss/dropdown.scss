@@ -10,7 +10,7 @@
   color: $regularColor;
   padding-top: 13px;
   margin-bottom: 22px;
-  font-size: 19px;
+  font-size: 16px;
   line-height: 30px;
 
   .b-dropdown__label{
@@ -96,8 +96,8 @@
 .b-dropdown__sub {
   position: absolute;
   top: 100%;
-  left: -15px;
-  right: -15px;
+  left: -20px;
+  right: -20px;
   margin-top: -1px;
   height: 0;
   opacity: 0;
@@ -121,7 +121,7 @@
 
 .b-dropdown__item{
   border-top: 1px solid rgba(0,0,0, .15);
-  padding: 15px 30px;
+  padding: 15px 20px;
   transition: color .25s;
 
   &:first-child{

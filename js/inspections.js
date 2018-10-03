@@ -248,8 +248,13 @@ $(function () {
   function defaultSettings() {
     $sidebar.addClass('close');
     $content.addClass('b-inspection-page');
-    var tabVal = $('.b-top-links__link.active').html();
-    $searchPageInput.val('осмотры '+tabVal);
+
+    var tabVal1 = $('.b-content__top h1').html();
+    var tabVal2 = '';
+    if ($('.b-top-links__link.active').length){
+      tabVal2 = ' '+$('.b-top-links__link.active').html();
+    }
+    $searchPageInput.val(tabVal1+tabVal2);
   }
   defaultSettings();
 

@@ -33,7 +33,7 @@
       left: 70px;
       top: 0;
       right: 0;
-      min-width: 1125px;
+      min-width: 1130px;
     }
     .b-result-table__header{
       box-shadow: 0 10px 20px rgba(0,0,0, .03);
@@ -209,6 +209,11 @@
   table-layout: fixed;
   position: relative;
   cursor: pointer;
+  color: $regularColor;
+
+  &:hover{
+    color: $regularColor;
+  }
 }
 
 .b-result-table__content{

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=1200">
+    <title>Энергогарант - бэкофис</title>
+
+    <link rel="stylesheet" href="css/jquery.datepick.css" media="all">
+    <link rel="stylesheet" href="css/common.css" media="all">
+
+    <script src="js/libs/jquery-3.3.1.min.js"></script>
+    <script src="js/libs/jquery.plugin.js"></script>
+    <script src="js/libs/jquery.datepick.js"></script>
+    <script src="js/libs/jquery.datepick-ru.js"></script>
+
+    <script src="js/main.js"></script>
+    <script src="js/filter.js"></script>
+    <script src="js/inspections.js"></script>
+
+</head>
+<body>
+
+    <div class="js-sidebar b-sidebar">
+        <div class="b-sidebar__top">
+            <a href="#" class="js-sidebar-toggle b-burger"></a>
+            <a href="#" class="js-sidebar-toggle b-logo"></a>
+            <a href="#" class="js-search-call b-search-call"></a>
+        </div>
+
+        <ul class="b-menu">
+            <li class="b-menu__item">
+                <a href="#" class="b-menu__link b-menu__link_1">
+                    <span class="b-menu__link-icon"></span>
+                    <span class="b-menu__link-text">Новый запрос</span>
+                </a>
+            </li>
+            <li class="b-menu__item">
+                <a href="#" class="b-menu__link b-menu__link_2">
+                    <span class="b-menu__link-icon"></span>
+                    <span class="b-menu__link-text">Запросы</span>
+                    <span class="b-menu__number hidden"></span>
+                </a>
+            </li>
+            <li class="b-menu__item">
+                <a href="#" class="b-menu__link b-menu__link_3">
+                    <span class="b-menu__link-icon"></span>
+                    <span class="b-menu__link-text">Проверка</span>
+                    <span class="b-menu__number">231</span>
+                </a>
+            </li>
+            <li class="b-menu__item">
+                <a href="#" class="b-menu__link b-menu__link_4 active">
+                    <span class="b-menu__link-icon"></span>
+                    <span class="b-menu__link-text">Убытки</span>
+                    <span class="b-menu__number">73</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="b-sidebar__exit">
+            <a href="#" class="b-menu__link b-menu__link_exit">
+                <span class="b-menu__link-icon"></span>
+                <span class="b-menu__link-text">Выйти</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="js-content b-content">
+        <div class="u-clear-fix b-content__top">
+            <form action="http://search.php" class="js-search-form b-search">
+                <input type="text" class="js-search-page-input hidden" name="search[page]" id="search_page">
+                <input type="text" class="js-search-input b-search__input" name="search[search]" id="search_search" placeholder="Введите любой критерий осмотра, например фамилию клиента ">
+            </form>
+            <h1>Убытки</h1>
+            <a href="#" class="b-request-call"></a>
+        </div>
+
+        <div class="js-result-table b-result-table b-result-table_6">
+
+            <form action="http://filters.php" class="js-table-header b-result-table__header-wrapper">
+                <div class="b-result-table__header-fix">
+                    <div class="b-result-table__header">
+                        <label class="b-result-table__column">
+                            <div class="js-filter-input-box b-result-table__filter b-result-table__filter_text">
+                                <input class="js-filter-input b-result-table__filter-input" type="text" id="filter1" name="filter1">
+                                <span class="b-result-table__label">УБЫТКИ</span>
+                                <span class="js-filter-input-reset b-result-table__reset"></span>
+                            </div>
+                        </label>
+                        <label class="js-filter-dropdown-label b-result-table__column">
+
+                            <div class="js-filter-input-box b-result-table__filter b-result-table__filter_list">
+                                <input class="js-filter-input b-result-table__filter-input" disabled type="text" id="filter2" name="filter2">
+                                <span class="b-result-table__label">ОБЪЕКТ</span>
+                                <span class="js-filter-input-reset b-result-table__reset"></span>
+                            </div>
+
+                            <ul class="b-result-table__filter-dropdown">
+                                <li>
+                                    <a href="#" class="js-filter-dropdown-item">Автомобиль</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="js-filter-dropdown-item">Здоровье</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="js-filter-dropdown-item">Недвижимость</a>
+                                </li>
+                            </ul>
+
+                        </label>
+                        <label class="b-result-table__column">
+
+                            <div class="js-filter-input-box b-result-table__filter b-result-table__filter_date">
+                                <input readonly class="js-filter-datepicker js-filter-input b-result-table__filter-input" type="text" id="filter3" name="filter3">
+                                <span class="b-result-table__label">Дата</span>
+                                <span class="js-filter-input-reset b-result-table__reset"></span>
+                            </div>
+
+                        </label>
+                        <label class="b-result-table__column">
+                            <div class="js-filter-input-box b-result-table__filter b-result-table__filter_text">
+                                <input class="js-filter-input b-result-table__filter-input" type="text" id="filter4" name="filter4">
+                                <span class="b-result-table__label">СОБЫТИЕ</span>
+                                <span class="js-filter-input-reset b-result-table__reset"></span>
+                            </div>
+                        </label>
+                        <label class="b-result-table__column">
+                            <div class="js-filter-input-box b-result-table__filter b-result-table__filter_text">
+                                <input class="js-filter-input b-result-table__filter-input" type="text" id="filter5" name="filter5">
+                                <span class="b-result-table__label">КЛИЕНТ</span>
+                                <span class="js-filter-input-reset b-result-table__reset"></span>
+                            </div>
+                        </label>
+                        <label class="b-result-table__column">
+                            <div class="js-filter-input-box b-result-table__filter b-result-table__filter_text">
+                                <input class="js-filter-input b-result-table__filter-input" type="text" id="filter6" name="filter6">
+                                <span class="b-result-table__label">ДОКУМЕНТ</span>
+                                <span class="js-filter-input-reset b-result-table__reset"></span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </form>
+
+            <form action="http://items.php" class="js-product-list-form">
+                <ul class="js-table-result b-result-table__content">
+
+                    <li class="js-table-item b-result-table__item">
+                        <a href="#" class="b-result-table__item-top">
+                            <div class="b-result-table__column">
+                                # 001-232-42
+                            </div>
+                            <div class="b-result-table__column">
+                                Автомобиль
+                            </div>
+                            <div class="b-result-table__column">
+                                15 авг в 20:30
+                            </div>
+                            <div class="b-result-table__column">
+                                ДТП
+                            </div>
+                            <div class="b-result-table__column">
+                                Константин П.
+                            </div>
+                            <div class="b-result-table__column">
+                                Европротокол
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="js-table-item b-result-table__item">
+                        <a href="#" class="b-result-table__item-top">
+                            <div class="b-result-table__column">
+                                # 001-232-42
+                            </div>
+                            <div class="b-result-table__column">
+                                Здоровье
+                            </div>
+                            <div class="b-result-table__column">
+                                15 авг в 20:30
+                            </div>
+                            <div class="b-result-table__column">
+                                Болезнь
+                            </div>
+                            <div class="b-result-table__column">
+                                Леонид К.
+                            </div>
+                            <div class="b-result-table__column">
+                                Справка из поликлиники
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="js-table-item b-result-table__item">
+                        <a href="#" class="b-result-table__item-top">
+                            <div class="b-result-table__column">
+                                # 001-232-42
+                            </div>
+                            <div class="b-result-table__column">
+                                Недвижимость
+                            </div>
+                            <div class="b-result-table__column">
+                                15 авг в 20:30
+                            </div>
+                            <div class="b-result-table__column">
+                                Пожар
+                            </div>
+                            <div class="b-result-table__column">
+                                Григорий М.
+                            </div>
+                            <div class="b-result-table__column empty"></div>
+                        </a>
+                    </li>
+
+                </ul>
+            </form>
+
+            <div class="js-search-form-error b-search__error hidden">
+                По вашему запросу ничего не найдено
+            </div>
+        </div>
+
+        <a href="#" class="js-scroll-top b-scroll-top"></a>
+
+    </div>
+
+    <div class="js-forms-error b-forms-error">
+        Возникла ошибка. Повторите попытку позже.
+    </div>
+</body>
+</html>
+
