@@ -17,10 +17,22 @@ $(function () {
   var $popup = $('.js-popup');
   var $video = $('.js-video');
   var $popupCloseLink = $('.js-close-popup');
+  var $accordionLink = $('.js-accordion-link');
 
   $(window).on('resize', function () {
     windowHeight = $(window).height();
     resizeSizes()
+  });
+
+  /**
+   * accordion
+   */
+  $accordionLink.on('click', function (e) {
+    e.preventDefault();
+
+    var $thisBox = $(this).closest('.js-accordion-box');
+    $thisBox.toggleClass('open');
+    $('.js-accordion-item', $thisBox).slideToggle(250);
   });
 
   /**

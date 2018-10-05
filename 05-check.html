@@ -24,33 +24,35 @@
     <div class="js-sidebar b-sidebar">
         <div class="b-sidebar__top">
             <a href="#" class="js-sidebar-toggle b-burger"></a>
-            <a href="#" class="js-sidebar-toggle b-logo"></a>
+            <div class="b-logo__wrapper">
+                <a href="#" class="js-sidebar-toggle b-logo"></a>
+            </div>
             <a href="#" class="js-search-call b-search-call"></a>
         </div>
 
         <ul class="b-menu">
             <li class="b-menu__item">
-                <a href="#" class="b-menu__link b-menu__link_1">
+                <a href="01-inspections-car.html" class="b-menu__link b-menu__link_1">
                     <span class="b-menu__link-icon"></span>
                     <span class="b-menu__link-text">Новый запрос</span>
                 </a>
             </li>
             <li class="b-menu__item">
-                <a href="#" class="b-menu__link b-menu__link_2">
+                <a href="04-inquiry.html" class="b-menu__link b-menu__link_2">
                     <span class="b-menu__link-icon"></span>
                     <span class="b-menu__link-text">Запросы</span>
                     <span class="b-menu__number hidden"></span>
                 </a>
             </li>
             <li class="b-menu__item">
-                <a href="#" class="b-menu__link b-menu__link_3 active">
+                <a href="05-check.html" class="b-menu__link b-menu__link_3 active">
                     <span class="b-menu__link-icon"></span>
                     <span class="b-menu__link-text">Проверка</span>
                     <span class="b-menu__number">231</span>
                 </a>
             </li>
             <li class="b-menu__item">
-                <a href="#" class="b-menu__link b-menu__link_4">
+                <a href="03-losses.html" class="b-menu__link b-menu__link_4">
                     <span class="b-menu__link-icon"></span>
                     <span class="b-menu__link-text">Убытки</span>
                     <span class="b-menu__number">73</span>
@@ -211,9 +213,9 @@
             <div id="docs" class="b-document__section">
                 <h3>ДОКУМЕНТЫ</h3>
                 <ul class="u-clear-fix b-document__box">
-                    <li data-id="0" class="js-doc-call b-document" style="background-image: url(i/tmp/docs.jpg)"></li>
-                    <li data-id="1" class="js-doc-call b-document" style="background-image: url(i/tmp/docs.jpg)"></li>
-                    <li data-id="2" class="js-doc-call b-document" style="background-image: url(i/tmp/docs.jpg)"></li>
+                    <li data-popup="docs1" data-id="0" class="js-doc-call b-document" style="background-image: url(i/tmp/docs.jpg)"></li>
+                    <li data-popup="docs1" data-id="1" class="js-doc-call b-document" style="background-image: url(i/tmp/docs.jpg)"></li>
+                    <li data-popup="docs1" data-id="2" class="js-doc-call b-document" style="background-image: url(i/tmp/docs.jpg)"></li>
                 </ul>
             </div>
 
@@ -272,7 +274,7 @@
             </video>
         </div>
 
-        <div class="js-popup js-docs-popup js-min-height b-popup b-popup__photos">
+        <div id="docs1" class="js-popup js-docs-popup js-min-height b-popup b-popup__photos">
             <div class="b-popup__top">
                 <a href="#" class="js-rotate b-photos__rotate"></a>
                 <a href="#" target="_blank" class="js-url-photo b-photos__link">Открыть оригинал</a>

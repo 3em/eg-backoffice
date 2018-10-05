@@ -40,6 +40,7 @@ $(function () {
   var $denyForm_error = $('.js-deny-form-error');
   var $denyCall = $('.js-button-deny-call');
   var $denyPopup = $('.js-deny-popup');
+  var $expertiseButton = $('.js-expertise');
 
 
   $(window).on('resize', function () {
@@ -49,6 +50,35 @@ $(function () {
     mapSize();
     sliderPicSize();
   });
+
+  /**
+   * expertise send
+   */
+  $expertiseButton.on('click', function (e) {
+    e.preventDefault();
+
+    $.ajax({
+      url: $(this).attr('data-action'),
+      processData: false,
+      contentType: false,
+      method: "POST",
+      data: $productId.html(),
+      dataType: "JSON",
+      success: function (data) {
+        data.result === 'ok' ? showSuccessExpertise() : showErrorResultOk()
+      },
+      error: function () {
+        showErrorResultOk();
+      }
+    });
+  });
+
+  /**
+   * success expertise
+   */
+  function showSuccessExpertise() {
+    $expertiseButton.addClass('hidden');
+  }
 
   /**
    * call popup deny
@@ -265,10 +295,11 @@ $(function () {
     e.preventDefault();
 
     var thisIndex = parseInt($(this).attr('data-id'));
+    var thisIdDocs = $(this).attr('data-popup');
 
     $body.addClass('overflow');
     $popupOverlay.addClass('show');
-    $docsPopup.addClass('show');
+    $('#'+thisIdDocs).addClass('show');
 
     slickDocsInit();
     $sliderDocs.slick('slickGoTo', thisIndex);
