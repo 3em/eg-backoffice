@@ -115,16 +115,18 @@ h4{
   backface-visibility: hidden;
   text-align: center;
   cursor: pointer;
+  box-shadow: 0 30px 30px rgba(255,65,65, .3);
   transition: background .25s, box-shadow .25s;
 
   &:hover{
     color: #fff;
-    box-shadow: 0 20px 60px rgba(255,65,65, .5);
+    box-shadow: 0 30px 60px rgba(255,65,65, .5);
   }
 
   &[disabled=disabled]{
     cursor: default;
     background: #D1D1D1;
+    box-shadow: none;
 
     &:hover{
       box-shadow: none;
@@ -146,9 +148,11 @@ h4{
     line-height: 46px;
     color: $regularColor;
     border-radius: 23px;
+    box-shadow: none;
+    //box-shadow: 0 30px 30px rgba(0,0,0, .1);
 
     &:hover{
-      box-shadow: 0 30px 30px rgba(0,0,0, .1);
+      background: #D3D3D3;
     }
   }
 }
@@ -237,15 +241,21 @@ h4{
   right: -23px;
   top: 50%;
   transform: translate(0, -50%);
+  transform-origin: center;
   width: 46px;
   height: 46px;
   border-radius: 50%;
   z-index: 11;
   background: $linkColor;
-  transition: box-shadow .25s;
+  box-shadow: 0 30px 30px rgba(255,65,65, .3);
+  transition: transform .25s;
 
   &:hover{
-    box-shadow: 0 30px 30px rgba(255,65,65, .3);
+    transform: translate(0, -50%) scale(1.1);
+
+    &:before{
+      transform: scale(.9);
+    }
   }
 
   &:before{
@@ -257,6 +267,7 @@ h4{
     bottom: 0;
     background: url("../i/i-search.svg") no-repeat center;
     background-size: 22px auto;
+    transition: transform .25s;
   }
 
   &.active{
@@ -305,6 +316,7 @@ h4{
 .b-menu__link{
   display: block;
   position: relative;
+  font-size: 18px;
   line-height: $menuHeight;
   padding: 0 0 0 67px;
   color: $regularColor;
@@ -387,7 +399,7 @@ h4{
     text-align: center;
     background: rgba(0,0,0, .06);
     border-radius: 12px;
-    margin-top: 1px;
+    margin-top: 2px;
   }
 
   .b-menu__link-icon{
@@ -442,13 +454,14 @@ h4{
   }
 
   &.padding{
-    padding-bottom: 66px;
+    padding-bottom: 66px !important;
   }
 }
 
 .b-inspection-page{
   &.b-content{
     margin-left: 70px;
+    padding-bottom: 0;
   }
   .b-content__top{
     background: #fff;
@@ -492,7 +505,8 @@ h4{
   border-radius: 50%;
   background: $linkColor;
   color: $regularColor;
-  transition: box-shadow .25s;
+  box-shadow: 0 30px 30px rgba(255,65,65, .3);
+  transition: transform .25s;
 
   &:before{
     content: "";
@@ -503,10 +517,15 @@ h4{
     bottom: 0;
     background: url("../i/i-new-request.svg") no-repeat center;
     background-size: 13px;
+    transition: transform .25s;
   }
 
   &:hover{
-    box-shadow: 0 30px 30px rgba(255,65,65, .3);
+    transform: translate(0, -50%) scale(1.1);
+
+    &:before{
+      transform: scale(.9);
+    }
   }
 }
 
@@ -939,7 +958,7 @@ input[type="time"]::-webkit-clear-button {
 input[type="time"]::-ms-clear {
   display: none;
 }
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1400px) {
   .b-content{
     &.shift{
       &.b-inspection-page{
@@ -952,7 +971,7 @@ input[type="time"]::-ms-clear {
     }
   }
 }
-@media screen and (min-width: 1300px) {
+@media screen and (min-width: 1400px) {
   .b-content{
     &.b-inspection-page{
       &.shift{

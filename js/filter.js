@@ -13,7 +13,6 @@ $(function () {
     hideFiltersDropdowns();
   });
 
-
   /**
    * hide filters fropdown on scroll when table header is fixed
    */

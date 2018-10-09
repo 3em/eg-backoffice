@@ -1,17 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.879 17.879">
+<svg id="Group_3394" data-name="Group 3394" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.879 16.879">
   <defs>
     <style>
       .cls-1 {
         fill: none;
         stroke: #000;
         stroke-miterlimit: 10;
-        stroke-width: 2px;
       }
     </style>
   </defs>
-  <g id="Group_3344" data-name="Group 3344" transform="translate(0.5 0.5)">
-    <path id="Path_3430" data-name="Path 3430" class="cls-1" d="M8.3.5h5.558V6.058" transform="translate(2.521)"/>
-    <path id="Path_3431" data-name="Path 3431" class="cls-1" d="M6.058,13.858H.5V8.3" transform="translate(0 2.521)"/>
-    <line id="Line_3979" data-name="Line 3979" class="cls-1" x1="15.614" y2="15.614" transform="translate(0.5 0.765)"/>
-  </g>
+  <path id="Path_3430" data-name="Path 3430" class="cls-1" d="M8.3.5h5.558V6.058" transform="translate(2.521)"/>
+  <path id="Path_3431" data-name="Path 3431" class="cls-1" d="M6.058,13.858H.5V8.3" transform="translate(0 2.521)"/>
+  <line id="Line_3979" data-name="Line 3979" class="cls-1" x1="15.614" y2="15.614" transform="translate(0.5 0.765)"/>
 </svg>

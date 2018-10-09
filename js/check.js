@@ -238,11 +238,18 @@ $(function () {
    */
   $commentCall.on('click', function (e) {
     e.preventDefault();
-    $(this).toggleClass('active');
-    $commentForm.toggleClass('open');
+    var val = $commentInput.val();
+
+    if (val != ''){
+      $(this).addClass('active');
+      $commentForm.addClass('open');
+    } else {
+      $(this).toggleClass('active');
+      $commentForm.toggleClass('open');
+    }
+
 
     if ($commentForm.hasClass('open')){
-      var val = $commentInput.val();
       $commentInput.val('').val(val).trigger('focus');
 
       if (val != '')

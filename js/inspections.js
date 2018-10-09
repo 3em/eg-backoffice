@@ -20,6 +20,7 @@ $(function () {
   var $filterForm = $('.js-table-header');
   var $searchPageInput = $('.js-search-page-input');
   var $scrollTop = $('.js-scroll-top');
+  var windowWidth = $(window).width();
 
   $(window).on('scroll', function () {
     fixFilter();
@@ -27,6 +28,7 @@ $(function () {
 
   $(window).on('resize', function () {
     windowHeight = $(window).height();
+    windowWidth = $(window).width();
 
     setMinTableHeight();
     fixFilter();
@@ -246,8 +248,12 @@ $(function () {
    * default settings
    */
   function defaultSettings() {
-    $sidebar.addClass('close');
     $content.addClass('b-inspection-page');
+    if (windowWidth < 1400){
+      $sidebar.addClass('close');
+    } else {
+      $content.addClass('shift');
+    }
 
     var tabVal1 = $('.b-content__top h1').html();
     var tabVal2 = '';

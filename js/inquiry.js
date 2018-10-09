@@ -171,8 +171,6 @@ $(function () {
     $buttonBar.each(function () {
       if ($(this).is(':visible')){
 
-        console.log('asda');
-
         var vals = $(this)[0].getBoundingClientRect();
         if (vals.top > windowHeight - vals.height && !$(this).hasClass('fixed')){
           $(this).addClass('fixed')

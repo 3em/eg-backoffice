@@ -10,7 +10,6 @@ $(function () {
   var $filterForm = $('.js-table-header');
   var $tableResultAppend = $('.js-table-result');
   var $searchError = $('.js-search-form-error');
-  var windowHeight = $(window).height();
   var $minHeightBlock = $('.js-min-height');
   var sttm;
   var $popupOverlay = $('.js-overlay');
@@ -19,10 +18,30 @@ $(function () {
   var $popupCloseLink = $('.js-close-popup');
   var $accordionLink = $('.js-accordion-link');
 
+  var windowHeight = $(window).height();
+  var windowWidth = $(window).width();
+
   $(window).on('resize', function () {
     windowHeight = $(window).height();
-    resizeSizes()
+    windowWidth = $(window).width();
+    resizeSizes();
+    openSideBarOnWidth();
   });
+
+  /**
+   * if width wide open sidebar
+   */
+  function openSideBarOnWidth() {
+
+    if (windowWidth >= 1400 && $sidebar.hasClass('close') && $content.hasClass('b-inspection-page') ){
+      $sidebar.removeClass('close');
+      $content.addClass('shift');
+    } else if (windowWidth < 1400 && !$sidebar.hasClass('close') && $content.hasClass('b-inspection-page') ){
+      $sidebar.addClass('close');
+      $content.removeClass('shift');
+    }
+  }
+  openSideBarOnWidth();
 
   /**
    * accordion
