@@ -1350,8 +1350,7 @@ input[type="time"]::-ms-clear {
   top: 0;
   bottom: 0;
   width: 80px;
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
-  background: url("../i/i-table-button-arrow.svg") no-repeat center;
+  background: #FF4141 url("../i/i-table-button-arrow_white.svg") no-repeat center;
   background-size: 16px auto;
   transition: transform .25s, box-shadow .25s, border-color .25s; }
   .b-result-table__button:hover {
@@ -1846,7 +1845,9 @@ input[type="time"]::-ms-clear {
   vertical-align: top;
   margin-top: 27px;
   line-height: 46px;
-  margin-left: 40px; }
+  margin-left: 40px;
+  position: relative;
+  z-index: 21; }
   .b-paginator .b-paginator__link {
     float: left;
     vertical-align: top;
@@ -1943,6 +1944,8 @@ input[type="time"]::-ms-clear {
     float: left;
     vertical-align: top;
     position: relative; }
+    .b-column__box .b-column.b-column_map {
+      max-width: 860px; }
     .b-column__box .b-column.b-column_x2 {
       width: 48.5%; }
       .b-column__box .b-column.b-column_x2:first-child {
@@ -2027,7 +2030,9 @@ input[type="time"]::-ms-clear {
       background-size: 23px auto; }
 
 .b-small-map {
-  padding-bottom: 120%;
+  height: 450px;
+  padding-bottom: 10%;
+  box-sizing: content-box;
   position: relative;
   background-repeat: no-repeat;
   background-size: cover;
@@ -2207,8 +2212,7 @@ input[type="time"]::-ms-clear {
     .b-document__box.crash .b-document {
       width: 45%;
       margin: 2.5%;
-      height: auto;
-      padding-bottom: 34.7%; }
+      height: 149px; }
   .b-document__box.evroprotokol .b-document {
     width: 160px;
     height: 214px; }
@@ -2223,7 +2227,8 @@ input[type="time"]::-ms-clear {
     cursor: pointer;
     margin: 5px;
     background-position: center;
-    background-size: cover; }
+    background-size: cover;
+    position: relative; }
     .b-document__box .b-document:hover {
       box-shadow: 0 30px 50px rgba(0, 0, 0, 0.2); }
 
@@ -2538,9 +2543,8 @@ input[type="time"]::-ms-clear {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 47.25%;
-  height: 0;
-  padding-bottom: 36.44%;
+  width: 100%;
+  height: 100%;
   font-size: 30px; }
   .b-crash__more span {
     position: absolute;
@@ -2597,5 +2601,9 @@ input[type="time"]::-ms-clear {
       background: #FF4141;
       transition: opacity .25s;
       opacity: 0; }
+
+@media screen and (min-width: 1500px) {
+  .b-document__box.crash .b-document {
+    width: 28.33%; } }
 
 /*# sourceMappingURL=common.css.map */

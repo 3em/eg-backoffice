@@ -366,8 +366,8 @@
   top: 0;
   bottom: 0;
   width: 80px;
-  border-left: 1px solid $borderColor;
-  background: url("../i/i-table-button-arrow.svg") no-repeat center;
+  //border-left: 1px solid $borderColor;
+  background: $linkColor url("../i/i-table-button-arrow_white.svg") no-repeat center;
   background-size: 16px auto;
   transition: transform .25s, box-shadow .25s, border-color .25s;
 
